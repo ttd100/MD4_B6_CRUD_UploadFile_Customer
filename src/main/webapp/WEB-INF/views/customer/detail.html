@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/">Back Menu</a>
+<form th:action="@{/detai-customer}" th:object="${customersForm}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table border="1px" width="40%">
+        <tr>
+            <td>First name:</td>
+            <td th:text="${customersForm.firstName}"></td>
+        </tr>
+        <tr>
+            <td>Last name:</td>
+            <td th:text="${customersForm.lastName}"></td>
+        </tr>
+        <tr>
+            <td><label>avatar</label></td>
+            <td><img width="100" height="100" th:src="@{'/image/'+${customersForm.avatar}}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Update customer"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
